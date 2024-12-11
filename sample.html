@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Icon Example</title>
+    <style>
+        .audio-icon {
+            cursor: pointer;
+            width: 50px; /* Set the size of the icon */
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Play Audio with Icon</h1>
+    <audio id="myAudio">
+        <source src="your-audio-file.mp3" type="audio/mpeg">
+        <source src="your-audio-file.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <img src="icon-play.png" alt="Play Audio" class="audio-icon" id="playIcon">
+
+    <script>
+        const audio = document.getElementById('myAudio');
+        const playIcon = document.getElementById('playIcon');
+
+        playIcon.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.src = 'icon-pause.png'; // Change to a pause icon when playing
+            } else {
+                audio.pause();
+                playIcon.src = 'icon-play.png'; // Change back to play icon when paused
+            }
+        });
+    </script>
+
+</body>
+</html>
